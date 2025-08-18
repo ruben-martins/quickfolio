@@ -6,7 +6,7 @@
         <artifactId>quickfolio</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>quickfolio-domaine</artifactId>
-    <name>Archetype - quickfolio-domaine</name>
+    <artifactId>quick-monitor</artifactId>
+    <name>Archetype - quickfolio-data</name>
     <url>http://maven.apache.org</url>
 </project>

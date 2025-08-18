@@ -7,14 +7,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>quickfolio-rest-api</artifactId>
+    <artifactId>quick-rest-api</artifactId>
     <name>Quickfolio</name>
 
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>quickfolio-domaine</artifactId>
+            <artifactId>quick-domaine</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>quickfolio-persistence</artifactId>
+            <artifactId>quick-persistence</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
