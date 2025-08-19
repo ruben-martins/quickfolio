@@ -1,6 +1,8 @@
 package domaine.price.model;
 
-public class Price {
+import java.io.Serializable;
+
+public class Price implements Serializable {
 
     private String symbol;
     private Double price;
@@ -27,4 +29,5 @@ public class Price {
     public void setPrice(Double price) {
         this.price = price;
     }
+
 }

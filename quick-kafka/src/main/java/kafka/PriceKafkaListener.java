@@ -7,9 +7,8 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@KafkaListener(topics = "prices", groupId = "quick-price-group")
+@KafkaListener(topics = "prices", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
 public class PriceKafkaListener {
-
 
     private final PriceService priceService;
 
