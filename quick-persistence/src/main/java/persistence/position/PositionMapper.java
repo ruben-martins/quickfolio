@@ -34,7 +34,7 @@ public class PositionMapper {
             return null;
         }
         PositionEntity entity = new PositionEntity();
-        entity.setKey(position.getKey());
+        entity.setKey(position.getSymbol());
         entity.setSize(position.getSize());
         return entity;
     }

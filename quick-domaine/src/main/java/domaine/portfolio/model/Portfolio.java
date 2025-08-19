@@ -17,7 +17,7 @@ public record Portfolio(UUID id,
 
     public void addPosition(Position position) {
         Optional<Position> currentPosition = this.positions.stream()
-                .filter(p -> p.getKey().equals(position.getKey()))
+                .filter(p -> p.getSymbol().equals(position.getSymbol()))
                 .findFirst();
 
         if (currentPosition.isPresent()) {

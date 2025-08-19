@@ -1,0 +1,30 @@
+package kafka;
+
+import domaine.price.PriceService;
+import domaine.price.model.Price;
+import org.springframework.kafka.annotation.KafkaHandler;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
+
+@Component
+@KafkaListener(topics = "prices", groupId = "quick-price-group")
+public class PriceKafkaListener {
+
+
+    private final PriceService priceService;
+
+    public PriceKafkaListener(PriceService priceService) {
+        this.priceService = priceService;
+    }
+
+    @KafkaHandler
+    public void consumePriceEvent(Price priceEvent) {
+        priceService.updatePrice(priceEvent);
+    }
+
+    @KafkaHandler(isDefault = true)
+    public void unknown(Object object) {
+        System.out.println("Unkown type received: " + object);
+    }
+
+}

@@ -1,6 +1,7 @@
 package api.configurarion;
 
 import domaine.annotations.DomainService;
+import kafka.KafkaConsumerConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -11,7 +12,7 @@ import persistence.configuration.PersistanceConfiguration;
 @ComponentScan(
         basePackages = {"domaine"},
         includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = DomainService.class)})
-@Import(PersistanceConfiguration.class)
+@Import({PersistanceConfiguration.class, KafkaConsumerConfiguration.class})
 public class AppConfiguration {
 
 }

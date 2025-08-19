@@ -23,3 +23,10 @@ CREATE TABLE position
     size         DOUBLE PRECISION,
     portfolio_id UUID REFERENCES portfolio (id)
 );
+
+-- Table: price
+CREATE TABLE price
+(
+    symbol       VARCHAR(10) PRIMARY KEY,
+    price        DOUBLE PRECISION
+);

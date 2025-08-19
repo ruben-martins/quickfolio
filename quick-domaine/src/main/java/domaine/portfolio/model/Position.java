@@ -2,21 +2,21 @@ package domaine.portfolio.model;
 
 public class Position {
 
-    private String key;
+    private final String symbol;
     private Double size;
 
     public Position() {
-        this.key = null;
+        this.symbol = null;
         this.size = 0.0;
     }
 
-    public Position(String key, Double size) {
-        this.key = key;
+    public Position(String symbol, Double size) {
+        this.symbol = symbol;
         this.size = size;
     }
 
-    public String getKey() {
-        return key;
+    public String getSymbol() {
+        return symbol;
     }
 
     public Double getSize() {
