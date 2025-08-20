@@ -45,7 +45,7 @@ public class KafkaProducerConfiguration {
     }
 
     @Bean
-    public KafkaTemplate<String, Price> stockePriceKafkaTemplate() {
+    public KafkaTemplate<String, Price> priceKafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

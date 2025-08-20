@@ -1,4 +1,4 @@
-package domaine.price;
+package domaine.price.service;
 
 import domaine.price.model.Price;
 import domaine.price.model.PricedPortfolio;

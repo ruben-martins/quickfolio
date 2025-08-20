@@ -2,9 +2,11 @@ package persistence.price;
 
 import domaine.price.model.Price;
 import domaine.price.persitance.PricePersistance;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
 @Component
+@Transactional
 public class PricePersistanceImpl implements PricePersistance {
 
     private final PriceRepository priceRepository;
@@ -14,15 +16,14 @@ public class PricePersistanceImpl implements PricePersistance {
     }
 
     @Override
-    public void save(Price price) {
-        PriceEntity priceEntity = new PriceEntity();
-        priceEntity.setSymbol(priceEntity.getSymbol());
-        priceEntity.setPrice(priceEntity.getPrice());
+    public synchronized void save(Price price) {
+        PriceEntity priceEntity = priceRepository.getReferenceById(price.getSymbol());
+        priceEntity.setPrice(price.getPrice());
         priceRepository.save(priceEntity);
     }
 
     @Override
     public Double findPriceBySymbol(String symbol) {
-        return priceRepository.findPriceBySymbol(symbol).orElse(0d);
+        return priceRepository.getPriceBySymbol(symbol).orElse(0d);
     }
 }

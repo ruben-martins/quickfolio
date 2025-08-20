@@ -13,7 +13,7 @@ public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String symbol;
-    private String price;
+    private Double price;
 
     public String getSymbol() {
         return symbol;
@@ -23,11 +23,11 @@ public class PriceEntity {
         this.symbol = symbol;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String value) {
+    public void setPrice(Double value) {
         this.price = value;
     }
 }

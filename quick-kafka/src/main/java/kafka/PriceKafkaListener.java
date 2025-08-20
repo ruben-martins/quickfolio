@@ -1,6 +1,6 @@
 package kafka;
 
-import domaine.price.PriceService;
+import domaine.price.service.PriceService;
 import domaine.price.model.Price;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;

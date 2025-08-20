@@ -8,7 +8,9 @@ import java.util.Map;
 public class PricedPortfolio {
 
     private final String name;
-    private final Map<String, PricedPosition> pricedPositionBySymbol = new HashMap<>();
+    private Double totalValue;
+    private final Map<String, PricedPosition> positionBySymbol = new HashMap<>();
+
 
     public PricedPortfolio(String name) {
         this.name = name;
@@ -18,17 +20,28 @@ public class PricedPortfolio {
         return name;
     }
 
+    public Double getTotalValue() {
+        if (totalValue == null) {
+            this.totalValue = calculateTotalValue();
+        }
+        return totalValue;
+    }
+
+    public Map<String, PricedPosition> getPositionBySymbol() {
+        return positionBySymbol;
+    }
+
     public void addPosition(Position position, Double price) {
         PricedPosition pricedPosition = new PricedPosition(position, price);
-        pricedPositionBySymbol.put(position.getSymbol(), pricedPosition);
+        positionBySymbol.put(position.getSymbol(), pricedPosition);
     }
 
     public PricedPosition getPricedPosition(String symbol) {
-        return pricedPositionBySymbol.get(symbol);
+        return positionBySymbol.get(symbol);
     }
 
     public Double calculateTotalValue() {
-        return pricedPositionBySymbol.values().stream()
+        return positionBySymbol.values().stream()
                 .mapToDouble(p -> p.getSize() * p.getPrice())
                 .sum();
     }

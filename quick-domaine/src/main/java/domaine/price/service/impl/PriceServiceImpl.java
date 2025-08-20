@@ -1,11 +1,11 @@
-package domaine.price.impl;
+package domaine.price.service.impl;
 
 import domaine.account.exception.AccountException;
 import domaine.account.model.Account;
 import domaine.account.persistance.AccountPersistance;
 import domaine.annotations.DomainService;
 import domaine.portfolio.model.Portfolio;
-import domaine.price.PriceService;
+import domaine.price.service.PriceService;
 import domaine.price.model.Price;
 import domaine.price.model.PricedPortfolio;
 import domaine.price.persitance.PricePersistance;
