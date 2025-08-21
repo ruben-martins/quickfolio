@@ -2,13 +2,13 @@ package persistence.portfolio;
 
 import domaine.portfolio.model.Portfolio;
 import domaine.portfolio.persistence.PortfolioPersistance;
+import org.springframework.stereotype.Component;
 import persistence.account.AccountRepository;
-import persistence.configuration.PersistanceService;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@PersistanceService
+@Component
 public class PortfolioPersistanceImpl implements PortfolioPersistance {
 
     private final PortfolioRepository portfolioRepository;

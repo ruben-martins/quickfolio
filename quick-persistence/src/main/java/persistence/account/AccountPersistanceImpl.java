@@ -2,12 +2,12 @@ package persistence.account;
 
 import domaine.account.model.Account;
 import domaine.account.persistance.AccountPersistance;
-import persistence.configuration.PersistanceService;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@PersistanceService
+@Component
 public class AccountPersistanceImpl implements AccountPersistance {
 
     private final AccountRepository accountRepository;
