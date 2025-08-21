@@ -60,7 +60,7 @@ public class PortfolioController {
 
     @PostMapping("/addPosition")
     public ResponseEntity<Portfolio> addPositionToPortfolio(@RequestParam("portfolioId") UUID portfolioId,
-                                                       @RequestBody Position position) {
+                                                            @RequestBody Position position) {
         return ResponseEntity.ok(portfolioService.addPosition(portfolioId, position));
     }
 

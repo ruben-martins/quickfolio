@@ -17,7 +17,7 @@
   </properties>
 
   <modules>
-    <module>quick-api</module>
+    <module>quick-application</module>
     <module>quick-kafka</module>
     <module>quick-persistence</module>
     <module>quick-domaine</module>
