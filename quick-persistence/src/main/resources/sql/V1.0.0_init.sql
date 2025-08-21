@@ -30,3 +30,16 @@ CREATE TABLE price
     symbol       VARCHAR(10) PRIMARY KEY,
     price        DOUBLE PRECISION
 );
+
+-- Insert initial data
+insert into
+    public.price (symbol, price)
+values
+    ('TSLA', 426.86),
+    ('META', 426.86),
+    ('NFLX', 426.86),
+    ('NVDA', 426.86),
+    ('AAPL', 426.86),
+    ('GOOG', 426.86),
+    ('AMZN', 426.86),
+    ('MSFT', 426.86);
