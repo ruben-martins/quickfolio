@@ -9,7 +9,6 @@ public class Position {
     private Double size;
 
     public Position() {
-        this.size = 0.0;
     }
 
     public Position(UUID id, String symbol, Double size) {
