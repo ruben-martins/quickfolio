@@ -1,18 +1,28 @@
 package domaine.portfolio.model;
 
+import java.util.UUID;
+
 public class Position {
 
-    private final String symbol;
+    private UUID id;
+    private String symbol;
     private Double size;
 
     public Position() {
-        this.symbol = null;
         this.size = 0.0;
     }
 
-    public Position(String symbol, Double size) {
+    public Position(UUID id, String symbol, Double size) {
+        this.id = id;
         this.symbol = symbol;
         this.size = size;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getSymbol() {

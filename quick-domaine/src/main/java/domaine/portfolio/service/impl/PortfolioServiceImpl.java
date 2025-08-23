@@ -5,6 +5,7 @@ import domaine.account.message.AccountMessages;
 import domaine.account.model.Account;
 import domaine.account.persistance.AccountPersistance;
 import domaine.annotations.DomainService;
+import domaine.portfolio.PositionVerifier;
 import domaine.portfolio.exception.PortfolioException;
 import domaine.portfolio.messages.PortfolioMessages;
 import domaine.portfolio.model.CreatePortfolioRequest;
@@ -63,6 +64,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 
     @Override
     public Portfolio addPosition(UUID portfolioId, Position position) {
+        this.checkValidPosition(position);
+
         Portfolio portfolio = getPortfolioById(portfolioId);
         portfolio.addPosition(position);
         return portfolioPersistance.save(portfolio);
@@ -71,6 +74,13 @@ public class PortfolioServiceImpl implements PortfolioService {
     private Portfolio getPortfolioById(UUID portfolioId) {
         return portfolioPersistance.findPortfolioById(portfolioId)
                 .orElseThrow(() -> new PortfolioException("Portfolio not found with id: " + portfolioId));
+    }
+
+    private void checkValidPosition(Position position) {
+        if (!PositionVerifier.isPositionValid(position)) {
+            throw new PortfolioException(PortfolioMessages.ERROR_INVALID_POSITION.getMessage(position.getSize()));
+        }
+
     }
 
 }

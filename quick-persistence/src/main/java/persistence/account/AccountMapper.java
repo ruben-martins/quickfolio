@@ -48,7 +48,7 @@ public class AccountMapper {
             return Collections.emptyList();
         }
         return e.getPositions().stream()
-                .map(p -> new Position(p.getKey(), p.getSize()))
+                .map(p -> new Position(p.getId(), p.getKey(), p.getSize()))
                 .toList();
     }
 

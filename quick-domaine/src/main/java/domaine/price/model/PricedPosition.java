@@ -7,7 +7,7 @@ public class PricedPosition extends domaine.portfolio.model.Position {
     private Double price;
 
     public PricedPosition(Position position, Double price) {
-        super(position.getSymbol(), position.getSize());
+        super(position.getId(), position.getSymbol(), position.getSize());
         this.price = price;
     }
 

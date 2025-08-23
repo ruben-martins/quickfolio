@@ -8,5 +8,14 @@
     </parent>
     <artifactId>quick-domaine</artifactId>
     <name>Archetype - quickfolio-domaine</name>
-    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.18.0</version>
+        </dependency>
+    </dependencies>
+
+
 </project>

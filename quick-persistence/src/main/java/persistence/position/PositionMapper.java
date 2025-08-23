@@ -12,7 +12,7 @@ public class PositionMapper {
     private PositionMapper() {}
 
     public static Position toModel(PositionEntity entity) {
-        return new Position(entity.getKey(), entity.getSize());
+        return new Position(entity.getId(), entity.getKey(), entity.getSize());
     }
 
     public static List<Position> toModel(Collection<PositionEntity> entities) {
@@ -34,6 +34,7 @@ public class PositionMapper {
             return null;
         }
         PositionEntity entity = new PositionEntity();
+        entity.setId(position.getId());
         entity.setKey(position.getSymbol());
         entity.setSize(position.getSize());
         return entity;
