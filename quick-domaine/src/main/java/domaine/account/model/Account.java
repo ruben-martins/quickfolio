@@ -11,7 +11,7 @@ public record Account(UUID id,
                       List<Portfolio> portfolios) {
 
     public Account(String username, String email) {
-        this(UUID.randomUUID(), username, email, List.of());
+        this(null, username, email, List.of());
     }
 
 }
