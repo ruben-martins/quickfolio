@@ -1,27 +1,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.example</groupId>
-  <artifactId>quickfolio</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>Quickfolio</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example</groupId>
+    <artifactId>quickfolio</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Quickfolio</name>
 
-  <properties>
-    <java.version>21</java.version>
-    <maven.compiler.target>21</maven.compiler.target>
-    <maven.compiler.source>21</maven.compiler.source>
-    <spring.boot.version>3.5.4</spring.boot.version>
-  </properties>
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <spring.boot.version>3.5.5</spring.boot.version>
+        <cucumber.version>7.27.2</cucumber.version>
+        <junit.jupiter.version>5.13.4</junit.jupiter.version>
+    </properties>
 
-  <modules>
-    <module>quick-application</module>
-    <module>quick-kafka</module>
-    <module>quick-persistence</module>
-    <module>quick-domaine</module>
-    <module>quick-price-simulation</module>
-  </modules>
+    <modules>
+        <module>quick-application</module>
+        <module>quick-kafka</module>
+        <module>quick-persistence</module>
+        <module>quick-domaine</module>
+        <module>quick-price-simulation</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
