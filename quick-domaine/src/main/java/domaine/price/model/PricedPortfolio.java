@@ -2,18 +2,19 @@ package domaine.price.model;
 
 import domaine.portfolio.model.Position;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class PricedPortfolio {
 
     private final String name;
-    private Double totalValue;
-    private final Map<String, PricedPosition> positionBySymbol = new HashMap<>();
+    private final Double totalValue;
+    private final Map<String, PricedPosition> positionBySymbol;
 
 
-    public PricedPortfolio(String name) {
+    public PricedPortfolio(String name, Map<String, PricedPosition> positionBySymbol) {
         this.name = name;
+        this.positionBySymbol = positionBySymbol;
+        this.totalValue = calculateTotalValue();
     }
 
     public String getName() {
@@ -21,9 +22,6 @@ public class PricedPortfolio {
     }
 
     public Double getTotalValue() {
-        if (totalValue == null) {
-            this.totalValue = calculateTotalValue();
-        }
         return totalValue;
     }
 

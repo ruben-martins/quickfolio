@@ -43,7 +43,8 @@ public class PriceSimulatorService {
     }
 
     private static Double getNewPrice(Double currentPrice) {
-        double newPrice = currentPrice * (1 + Math.random() / 100); // Simulate price change
+        double sign = Math.random() > 0.5 ? 1 : -1;
+        double newPrice = currentPrice * (1 + sign * Math.random() / 100); // Simulate price change
         return Math.round(newPrice * 100.00) / 100.00; // round to 2 decimal places
     }
 

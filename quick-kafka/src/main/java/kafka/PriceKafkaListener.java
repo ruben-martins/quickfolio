@@ -1,7 +1,7 @@
 package kafka;
 
-import domaine.price.service.PriceService;
 import domaine.price.model.Price;
+import domaine.price.service.PriceService;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -19,11 +19,6 @@ public class PriceKafkaListener {
     @KafkaHandler
     public void consumePriceEvent(Price priceEvent) {
         priceService.updatePrice(priceEvent);
-    }
-
-    @KafkaHandler(isDefault = true)
-    public void unknown(Object object) {
-        System.out.println("Unkown type received: " + object);
     }
 
 }

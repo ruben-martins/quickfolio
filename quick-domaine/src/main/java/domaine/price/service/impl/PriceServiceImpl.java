@@ -5,13 +5,17 @@ import domaine.account.model.Account;
 import domaine.account.persistance.AccountPersistance;
 import domaine.annotations.DomainService;
 import domaine.portfolio.model.Portfolio;
-import domaine.price.service.PriceService;
+import domaine.portfolio.model.Position;
 import domaine.price.model.Price;
 import domaine.price.model.PricedPortfolio;
+import domaine.price.model.PricedPosition;
 import domaine.price.persitance.PricePersistance;
+import domaine.price.service.PriceService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @DomainService
 public class PriceServiceImpl implements PriceService {
@@ -41,13 +45,18 @@ public class PriceServiceImpl implements PriceService {
                 .parallelStream()
                 .map(this::mapPricedPortfolio)
                 .toList();
-
     }
 
     private PricedPortfolio mapPricedPortfolio(Portfolio portfolio) {
-        PricedPortfolio pricedPortfolio = new PricedPortfolio(portfolio.name());
-        portfolio.positions().forEach(position -> pricedPortfolio.addPosition(position, getPriceBySymbol(position.getSymbol())));
-        return pricedPortfolio;
+        Map<String, PricedPosition> pricedPositions = portfolio
+                .positions()
+                .stream()
+                .collect(Collectors.toMap(Position::getSymbol, this::getPricedPosition));
+        return new PricedPortfolio(portfolio.name(), pricedPositions);
+    }
+
+    private PricedPosition getPricedPosition(Position p) {
+        return new PricedPosition(p, getPriceBySymbol(p.getSymbol()));
     }
 
     private Double getPriceBySymbol(String symbol) {
